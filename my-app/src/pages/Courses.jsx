@@ -1,23 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourses } from '../features/userAPI';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Courses() {
-  const dispatch = useDispatch();
+ 
   const { courses, loading } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
   const [enrollingcourse, setEnrollingcourse] = useState(null);
   const [error, setError] = useState("");
   const { isAuthenticated, user } = useSelector((state) => state.auth);
 
-  const navigate = useNavigate();
-
-
-
-
-
+  
   useEffect(() => {
     async function fetchData() {
       try {
